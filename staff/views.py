@@ -40,10 +40,13 @@ def detail(request, slug=None, cv=None):
 
 def search(request, template_name="staff/search.html"):
     """Staff plugin search list view"""
-    query = request.GET.get('q', None)
+    query = request.GET.get('q')
+    department = request.GET.get('department')
 
     if get_setting('site', 'global', 'searchindex') and query:
         staff = Staff.objects.search(query, user=request.user)
+        if department and department.isdigit():
+            staff = staff.filter(department=department)
     else:
         filters = get_query_filters(request.user, 'staff.view_staff')
         staff = Staff.objects.filter(filters).distinct()
