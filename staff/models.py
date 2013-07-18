@@ -10,6 +10,7 @@ from tendenci.core.perms.models import TendenciBaseModel
 from tendenci.core.perms.object_perms import ObjectPermission
 from staff.managers import StaffManager
 from tendenci.core.files.models import File
+from tendenci.core.files.managers import FileManager
 from tendenci.core.site_settings.models import Setting
 from tendenci.libs.abstracts.models import OrderingBaseModel
 
@@ -104,6 +105,8 @@ class StaffFile(OrderingBaseModel, File):
             ('featured','Featured'),
             ('other','Other'),
         ))
+
+    objects = FileManager()
 
     def save(self, *args, **kwargs):
         if self.position is None:
