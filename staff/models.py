@@ -62,7 +62,7 @@ class Staff(OrderingBaseModel, TendenciBaseModel):
             try:
                 last = Staff.objects.order_by('-position')[0]
                 self.position = last.position + 1
-            except IndexError:
+            except (IndexError, TypeError):
                 # First row
                 self.position = 0
 
