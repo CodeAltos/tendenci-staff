@@ -11,11 +11,13 @@ from tendenci.core.base.http import Http403
 from tendenci.core.event_logs.models import EventLog
 from tendenci.core.files.utils import get_image
 from tendenci.core.site_settings.utils import get_setting
+from tendenci.core.perms.decorators import is_enabled
 from tendenci.core.perms.utils import has_perm
 from tendenci.core.perms.utils import get_query_filters, has_view_perm
 from staff.models import Staff
 
 
+@is_enabled('staff')
 def detail(request, slug=None, cv=None):
     """Staff plugin details view"""
     staff = get_object_or_404(Staff, slug=slug)
@@ -38,6 +40,8 @@ def detail(request, slug=None, cv=None):
     else:
         raise Http403
 
+
+@is_enabled('staff')
 def search(request, template_name="staff/search.html"):
     """Staff plugin search list view"""
     query = request.GET.get('q')
@@ -60,5 +64,7 @@ def search(request, template_name="staff/search.html"):
     return render_to_response(template_name, {'staff_members':staff},
         context_instance=RequestContext(request))
 
+
+@is_enabled('staff')
 def search_redirect(request):
     return HttpResponseRedirect(reverse('staff'))
