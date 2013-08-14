@@ -74,10 +74,10 @@
             {% endspaceless %}
             {% if staff.positions %}{% for position in staff.positions.all %}<h2>{{ position }}</h2>{% endfor %}{% endif %}
             {% if staff.department %}<h3>{{ staff.department }}</h3>{% endif %}
-            {% if staff.phone and staff.email %}
+            {% if staff.phone or staff.email %}
                 <div id="staff-contact">
-                    <p><strong>Phone: </strong>{{ staff.phone }}</p>
-                    <p><strong>Email: </strong>{{ staff.email|obfuscate_email }}</p>
+                    {% if staff.phone %}<p><strong>Phone: </strong>{{ staff.phone }}</p>{% endif %}
+                    {% if staff.email %}<p><strong>Email: </strong>{{ staff.email|obfuscate_email }}</p>{% endif %}
                 </div>
             {% endif %}
         </div>
