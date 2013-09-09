@@ -1,7 +1,7 @@
 [
 	{
         "default_value": "staff", 
-        "description": "A global site setting for a url for the staff plugin", 
+        "description": "A global site setting for a url for the staff plugin. This change may take up to 24 hours to take affect.", 
         "data_type": "string",
         "update_dt": "2011-05-27 15:38:23",
         "input_type": "text",
