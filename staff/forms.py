@@ -71,7 +71,6 @@ class StaffForm(TendenciBaseForm):
             'user_perms',
             'group_perms',
             'member_perms',
-            'status',
             'status_detail',
         )
 

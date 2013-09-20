@@ -23,8 +23,8 @@ class FileAdmin(admin.StackedInline):
 
 
 class StaffAdmin(TendenciBaseModelAdmin):
-    list_display = ['name', 'slug', 'department', 'phone', 'status', 'position']
-    list_filter = ['department', 'status']
+    list_display = ['name', 'slug', 'department', 'phone', 'position']
+    list_filter = ['department']
     list_editable = ['position']
     search_fields = ['name', 'biography', 'cv']
     prepopulated_fields = {'slug': ['name']}
@@ -48,8 +48,7 @@ class StaffAdmin(TendenciBaseModelAdmin):
             'group_perms',
         )}),
         ('Publishing Status', {'fields': (
-            'status',
-            'status_detail'
+            'status_detail',
         )}),
     )
     form = StaffForm
