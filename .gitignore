@@ -1,9 +1,15 @@
 *.pyc
 # Exclude . files
 *.
+.DS_Store
+staff/.DS_Store
 
 # except for .gitignore
 !.gitignore
+# except for .tx
+!.tx/
+# except for .travis.yml
+!.travis.yml
 
 /*.egg-info
 /dist

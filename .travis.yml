@@ -1,0 +1,16 @@
+language: python
+python:
+  - "2.7"
+
+env:
+  global:
+    # for $TENDENCI_TRANSIFEX_PASSWORD
+    secure: "hPFjdfE9O/nakHh9KitmwTo/LdahgpWlZ5EMUcdcPgDegyFcncij56/Xbi+y57+M5PZBkh6qQO0X9r5jxF7o1vVcMAWmTuVQ+UoQ8louKdN07gBvXj6/aEMAxoEqGibPIVwg0zETcB6IyGRiGrhfO9up7pZIZWDY8FkVNYKu95Y="
+
+# command to install dependencies
+install:
+  - pip install Django==1.4.13
+
+# TODO: command to run tests
+# for now, run command to push source and translation files to Transifex
+script: ./transifex.sh
