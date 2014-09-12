@@ -1,6 +1,6 @@
-from django.conf.urls.defaults import patterns, url
+from django.conf.urls import patterns, url
 from staff.feeds import LatestEntriesFeed
-from tendenci.core.site_settings.utils import get_setting
+from tendenci.apps.site_settings.utils import get_setting
 
 urlpath = get_setting('module', 'staff', 'staff_url')
 if not urlpath:

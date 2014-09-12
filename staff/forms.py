@@ -3,9 +3,9 @@ from os.path import splitext
 
 from django import forms
 
-from tendenci.core.perms.forms import TendenciBaseForm
+from tendenci.apps.perms.forms import TendenciBaseForm
 from staff.models import Staff, StaffFile
-#from tendenci.core.files.models import File
+#from tendenci.apps.files.models import File
 from tinymce.widgets import TinyMCE
 
 ALLOWED_LOGO_EXT = (

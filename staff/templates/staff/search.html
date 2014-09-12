@@ -11,7 +11,7 @@
 {% block extra_head %}
 {{ block.super }}
 <link rel="stylesheet" href="{{ STATIC_URL }}css/staff.css">
-<link rel="alternate" type="application/rss+xml" title="Latest Staff" href="{% url staff.feed %}" />
+<link rel="alternate" type="application/rss+xml" title="Latest Staff" href="{% url "staff.feed" %}" />
 {% endblock %}
 
 {% block body %}
@@ -22,7 +22,7 @@
     <h1>{{ SITE_GLOBAL_SITEDISPLAYNAME }} {% firstof MODULE_STAFF_LABEL_PLURAL 'Staff' %}</h1>
     {% staff_search %}
     {% if can_add_staff %}
-    <div><a href="{% url admin:staff_staff_add %}">{% trans "Add" %} {% firstof MODULE_STAFF_LABEL 'Staff' %}</a></div>
+    <div><a href="{% url "admin:staff_staff_add" %}">{% trans "Add" %} {% firstof MODULE_STAFF_LABEL 'Staff' %}</a></div>
     {% endif %}
     <div class="staff-search-wrap-list clearfix">
         {% for staff in staff_members %}
