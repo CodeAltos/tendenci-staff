@@ -27,11 +27,11 @@ msgstr ""
 
 #: templates/staff/meta.html:12
 msgid "Owned by you"
-msgstr ""
+msgstr "你所拥有的"
 
 #: templates/staff/meta.html:12
 msgid "status"
-msgstr ""
+msgstr "状态"
 
 #: templates/staff/meta.html:24
 msgid "Share"

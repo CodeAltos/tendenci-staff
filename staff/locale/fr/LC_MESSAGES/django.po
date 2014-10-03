@@ -27,7 +27,7 @@ msgstr ""
 
 #: templates/staff/meta.html:12
 msgid "Owned by you"
-msgstr ""
+msgstr "Vous appartient"
 
 #: templates/staff/meta.html:12
 msgid "status"
