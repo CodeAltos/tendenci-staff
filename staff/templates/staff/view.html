@@ -4,6 +4,7 @@
 {% load perm_tags %}
 {% load staff_tags %}
 {% load tagging_tags %}
+{% load i18n %}
 
 {% block title %}
     {% nowhitespace %}
@@ -56,16 +57,16 @@
 {% block body %}
 <div class="t">
     <div class="view-staff-member">
-    
+
         <div id="staff-top" class="clearfix">
             {% for img in staff.stafffile_set.all %}
                 {% if img.photo_type == "featured" %}
-                    <div class="member-photo">  
+                    <div class="member-photo">
                         <img alt="{{ staff.name }}" src="{% url "file" img.pk %}190x190" /><br />
                     </div>
                 {% endif %}
             {% endfor %}
-        
+
         <div class="member-info">
             {% spaceless %}
                 <h1 style="border: none;">
@@ -76,18 +77,18 @@
             {% if staff.department %}<h3>{{ staff.department }}</h3>{% endif %}
             {% if staff.phone or staff.email %}
                 <div id="staff-contact">
-                    {% if staff.phone %}<p><strong>Phone: </strong>{{ staff.phone }}</p>{% endif %}
-                    {% if staff.email %}<p><strong>Email: </strong>{{ staff.email|obfuscate_email }}</p>{% endif %}
+                    {% if staff.phone %}<p><strong>{% trans 'Phone' %}: </strong>{{ staff.phone }}</p>{% endif %}
+                    {% if staff.email %}<p><strong>{% trans 'Email' %}: </strong>{{ staff.email|obfuscate_email }}</p>{% endif %}
                 </div>
             {% endif %}
         </div>
         </div><!-- /staff-top -->
-        
+
         <div id="main-staff-info" class="clearfix">
             {% if staff.personal_sites %}
-                <strong>Websites: </strong>{{ staff.personal_sites|urlize }}
+                <strong>{% trans 'Websites' %}: </strong>{{ staff.personal_sites|urlize }}
             {% endif %}
-            
+
             {% if staff.biography %}
                 <div id="staff-bio">
                     <h2>{{ staff.name|striptags }}'s Biography</h2>
@@ -95,12 +96,12 @@
                     {% if staff.cv %}
                     <p class="cv-link"><a href="{{ staff.get_absolute_url }}cv/">View {{ staff.name|striptags }}'s CV</a></p>
                     {% endif %}
- 
+
                 </div><!-- /staff-bio -->
             {% endif %}
-        
+
         </div><!-- /main-staff-info -->
-        
+
         <div id="staff-photos" class="clearfix">
             {% for img in staff.stafffile_set.all %}
             {% if img.photo_type == "other" %}
@@ -108,14 +109,14 @@
             {% endif %}
             {% endfor %}
         </div>
-        
+
         <div class="staff-meta">
-            <a href="{% url "staff.search" %}">&laquo;&nbsp;Search other staff</a>
+            <a href="{% url "staff.search" %}">&laquo;&nbsp;{% trans 'Search other staff' %}</a>
         </div>
         <div class="view-options clearfix" style="position: relative;">
            <div class="quick-options">{% staff_options request.user staff %}</div>
         </div>
-        
+
     </div>
 </div>
 

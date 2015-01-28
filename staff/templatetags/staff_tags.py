@@ -6,6 +6,15 @@ from staff.models import Staff
 register = Library()
 
 
+@register.inclusion_tag("staff/top_nav_items.html", takes_context=True)
+def staff_current_app(context, user, staff=None):
+    context.update({
+        "app_object": staff,
+        "user": user
+    })
+    return context
+
+
 @register.inclusion_tag("staff/options.html", takes_context=True)
 def staff_options(context, user, staff):
     context.update({
@@ -34,10 +43,10 @@ def list_staff(parser, token):
 
         {% list_staff as [varname] [options] %}
 
-    Be sure the [varname] has a specific name like ``staff_sidebar`` or 
+    Be sure the [varname] has a specific name like ``staff_sidebar`` or
     ``staff_list``. Options can be used as [option]=[value]. Wrap text values
     in quotes like ``tags="cool"``. Options include:
-    
+
         ``limit``
            The number of items that are shown. **Default: 3**
         ``order``
