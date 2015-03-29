@@ -14,7 +14,7 @@
 <link rel="alternate" type="application/rss+xml" title="Latest Staff" href="{% url "staff.feed" %}" />
 {% endblock %}
 
-{% block body %}
+{% block content %}
 
 {% autopaginate staff_members 9 %}
 {% has_perm user staff.add_staff as can_add_staff %}
@@ -33,7 +33,7 @@
     </div>
     {% paginate %}
 </div>
-{% endblock body %}
+{% endblock %}
 
 {% block featured_staff %}
 {% endblock %}

@@ -3,6 +3,7 @@
 *.
 .DS_Store
 staff/.DS_Store
+.*
 
 # except for .gitignore
 !.gitignore
