@@ -10,5 +10,6 @@ class StaffIndex(TendenciBaseSearchIndex):
     department = indexes.CharField(model_attr='department', null=True)
     position = indexes.CharField(model_attr='position', null=True)
 
+    @classmethod
     def get_model(self):
         return Staff
