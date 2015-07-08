@@ -20,14 +20,14 @@ class StaffForm(TendenciBaseForm):
     biography = forms.CharField(required=False,
         widget=TinyMCE(attrs={'style':'width:100%'},
         mce_attrs={'storme_app_label':Staff._meta.app_label,
-        'storme_model':Staff._meta.module_name.lower()}))
+        'storme_model':Staff._meta.model_name.lower()}))
 
     cv = forms.CharField(
         label='CV',
         required=False,
         widget=TinyMCE(attrs={'style':'width:100%'},
             mce_attrs={'storme_app_label':Staff._meta.app_label,
-            'storme_model':Staff._meta.module_name.lower()}))
+            'storme_model':Staff._meta.model_name.lower()}))
     
     status_detail = forms.ChoiceField(choices=(('active','Active'),('inactive','Inactive')))
 
