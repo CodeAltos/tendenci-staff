@@ -26,7 +26,7 @@ class Staff(OrderingBaseModel, TendenciBaseModel):
     name = models.CharField(max_length=50)
     slug = models.SlugField(max_length=75)
     department = models.ForeignKey('Department', blank=True, null=True)
-    positions = models.ManyToManyField('Position', blank=True, null=True)
+    positions = models.ManyToManyField('Position', blank=True)
     biography = models.TextField(blank=True, null=True)
     email = models.EmailField(blank=True, null=True)
     phone = models.CharField(max_length=25, blank=True, null=True)

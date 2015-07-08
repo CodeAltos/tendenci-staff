@@ -58,7 +58,7 @@ class Migration(migrations.Migration):
                 ('department', models.ForeignKey(blank=True, to='staff.Department', null=True)),
                 ('entity', models.ForeignKey(related_name='staff_staff_entity', on_delete=django.db.models.deletion.SET_NULL, default=None, blank=True, to='entities.Entity', null=True)),
                 ('owner', models.ForeignKey(related_name='staff_staff_owner', on_delete=django.db.models.deletion.SET_NULL, default=None, to=settings.AUTH_USER_MODEL, null=True)),
-                ('positions', models.ManyToManyField(to='staff.Position', null=True, blank=True)),
+                ('positions', models.ManyToManyField(to='staff.Position', blank=True)),
             ],
             options={
                 'get_latest_by': '-position',
