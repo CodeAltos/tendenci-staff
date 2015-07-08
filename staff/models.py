@@ -55,6 +55,7 @@ class Staff(OrderingBaseModel, TendenciBaseModel):
         verbose_name = 'Staff'
         verbose_name_plural = 'Staff'
         get_latest_by = "-position"
+        app_label = 'staff'
 
     def save(self, *args, **kwargs):
         if self.position is None:
@@ -86,12 +87,18 @@ class Staff(OrderingBaseModel, TendenciBaseModel):
 class Department(models.Model):
     name = models.CharField(max_length=200)
 
+    class Meta:
+        app_label = 'staff'
+
     def __unicode__(self):
         return self.name
 
 
 class Position(models.Model):
     name = models.CharField(max_length=200)
+
+    class Meta:
+        app_label = 'staff'
 
     def __unicode__(self):
         return self.name
@@ -123,6 +130,7 @@ class StaffFile(OrderingBaseModel, File):
 
     class Meta:
         ordering = ('position',)
+        app_label = 'staff'
         
 def post_save_setting(sender, **kwargs):
     instance = kwargs.get('instance', None)
