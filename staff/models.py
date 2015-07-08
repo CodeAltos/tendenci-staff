@@ -135,6 +135,6 @@ class StaffFile(OrderingBaseModel, File):
 def post_save_setting(sender, **kwargs):
     instance = kwargs.get('instance', None)
     if instance and instance.name=='staff_url':
-        call_command('touch_settings')
+        call_command('clear_cache')
 
 post_save.connect(post_save_setting, sender=Setting)
