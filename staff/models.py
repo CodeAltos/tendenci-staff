@@ -3,7 +3,7 @@ from datetime import datetime
 
 from django.db import models
 from django.utils.translation import ugettext_lazy as _
-from django.contrib.contenttypes import generic
+from django.contrib.contenttypes.fields import GenericRelation
 
 from tagging.fields import TagField
 from tendenci.apps.perms.models import TendenciBaseModel
@@ -41,7 +41,7 @@ class Staff(OrderingBaseModel, TendenciBaseModel):
     
     tags = TagField(blank=True, help_text=_('Tags separated by commas. E.g Tag1, Tag2, Tag3'))
 
-    perms = generic.GenericRelation(ObjectPermission,
+    perms = GenericRelation(ObjectPermission,
                                           object_id_field="object_id",
                                           content_type_field="content_type")
 
