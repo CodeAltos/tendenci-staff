@@ -6,7 +6,7 @@ from django import forms
 from tendenci.core.perms.forms import TendenciBaseForm
 from staff.models import Staff, StaffFile
 #from tendenci.core.files.models import File
-from tinymce.widgets import TinyMCE
+from tendenci.libs.tinymce.widgets import TinyMCE
 
 ALLOWED_LOGO_EXT = (
     '.jpg',
